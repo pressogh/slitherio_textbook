@@ -1,0 +1,69 @@
+{
+	"textbook_title": "게임 만들기 2",
+	"textbook_subtitle": {
+		"stage": "Pioneer",
+		"language": "Javascript",
+		"level": "2"
+	},
+	"textbook_summary": {
+		"summary_image_src": "",
+		"summary_text": ""
+	},
+	"textbook_contents": [
+		{
+			"step_title": "준비하기",
+			"step_no": 0,
+			"step_items": [
+				{
+					"title": "소개",
+					"tags": [],
+					"collapse": false,
+					"components": [
+						{
+							"type": "desc",
+							"description": "<p>이번 교재에서는 뱀을 화면에 표시되도록 여러 함수들을 만들어 보도록 하겠습니다.</p><p><br></p><p>잘 따라와주세요!</p>"
+						}
+					]
+				}
+			]
+		},
+		{
+			"step_title": "구현하기",
+			"step_no": 1,
+			"step_items": [
+				{
+					"title": "Util 클래스의 메소드 구현",
+					"tags": [],
+					"collapse": false,
+					"components": [
+						{
+							"type": "desc",
+							"description": "<p>우선, Util클래스의 random, random\bColor, randomName메소드들부터 구현해 봅시다.</p><p><br></p><p><strong style=\"color: rgb(0, 138, 0);\">random 메소드</strong>는 <strong style=\"background-color: rgb(255, 255, 204);\">min과 max를 인자로 받고, min이상 max이하의 수를 반환해주는 함수</strong>입니다.</p>"
+						},
+						{
+							"type": "code",
+							"code": "~~~javascript \n// js/util.js\n\nclass Util {\n\n    // 생략\n\n\trandom(min, max){\n\t    return Math.floor(Math.random() * (max - min + 1)) + min;\t\n\t}\n\n    // 생략\n\n}\n ~~~"
+						},
+						{
+							"type": "desc",
+							"description": "<p>다음은 <strong style=\"color: rgb(0, 138, 0);\">randomColor 메소드</strong>를 구현해 봅시다.</p><p><strong style=\"color: rgb(0, 138, 0);\">randomColor 메소드</strong>는 <strong style=\"background-color: rgb(255, 255, 204);\">color 테이블 중에 하나를 랜덤하게 뽑아 반환해주는 함수</strong>입니다.</p>"
+						},
+						{
+							"type": "code",
+							"code": "~~~javascript \n// js/util.js\n\n    // 생략\n\n\trandomColor(){\t\n\t\t// 랜덤한 색을 반환하는 함수\n        var colors = [\n            \"#C0392B\", \"#E74C3C\", \"#9B59B6\",\n            \"#8E44AD\", \"#2980B9\", \"#3498DB\",\n            \"#17A589\", \"#138D75\", \"#229954\",\n            \"#28B463\", \"#D4AC0D\", \"#D68910\",\n            \"#CA6F1E\", \"#BA4A00\"\n        ];\n        return colors[this.random(0, colors.length-1)];\n\t}\n\n    // 생략\n ~~~"
+						},
+						{
+							"type": "desc",
+							"description": "<p><br></p><p><br></p><p><strong style=\"color: rgb(0, 138, 0);\">randomName 메소드</strong>도 구현해줍시다.</p><p><strong style=\"color: rgb(0, 138, 0);\">randomName 메소드</strong>는 <strong style=\"background-color: rgb(255, 255, 204);\">name 테이블에서 랜덤하게 하나를 뽑아 반환해주는 함수</strong>입니다.</p><p><br></p><p><br></p>"
+						},
+						{
+							"type": "code",
+							"code": "~~~javascript \n// js/util.js\n\n\t// 생략\n\n\trandomName(){\n\t\t// 랜덤한 이름을 반환하는 함수\n        var names = ['Swift', 'Typescript', 'C++', 'Java', 'Python', 'Javascript', 'C', 'Go',\n\t\t'Rust', 'Kotlin', 'C#'];\n\t\treturn names[this.random(0, names.length-1)]\n\t}\n\n\t// 생략\n ~~~"
+						}
+					]
+				}
+			]
+		}
+	],
+	"textbook_folder": "dino2"
+}
