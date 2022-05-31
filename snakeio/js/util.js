@@ -3,7 +3,14 @@ class Util{
 	}
 
 	getMousePos(canvas, e) {
-	    // 캔버스에서 마우스 위치를 반환하는 함수  
+	    // 캔버스에서 마우스 위치를 반환하는 함수
+		var rect = canvas.getBoundingClientRect();
+	    var marginTop = canvas.style.marginTop;
+
+	    var x = e.clientX - rect.left;
+	    var y = e.clientY - rect.top - marginTop
+    
+	    return new Point(x, y);	    
 	}
 
 	random(min, max){  
@@ -24,8 +31,6 @@ class Util{
         return colors[this.random(0, colors.length - 1)];
 	}
 
-	// 생략
-
 	randomName(){
 		// 랜덤한 이름을 반환하는 함수
         var names = ['Swift', 'Typescript', 'C++', 'Java', 'Python', 'Javascript', 'C', 'Go',
@@ -33,23 +38,38 @@ class Util{
 		return names[this.random(0, names.length-1)]
 	}
 
-	// 생략
-
-
 	getDistance(s1, s2){
 		// 두 뱀 사이의 거리를 반환하는 함수
+		return Math.abs(Math.sqrt(Math.pow((s2.x - s1.x), 2) + Math.pow((s2.y - s1.y), 2)));
 	}
 
 	getAngle(p1, p2){		
 		// 뱀의 머리와 마우스 사이의 각도를 반환하는 함수
+		var d1 = this.getDistance(p1, new Point(0, canvas.height));
+		var d2 = this.getDistance(p2, new Point(0, canvas.height));	
+		
+        return Math.atan2(p2.y - p1.y, p2.x - p1.x);
     }
 
     cirCollission(x1, y1, r1, x2, y2, r2){
     	// 두 원의 충돌을 확인하여 반환하는 함수
+		return (this.getDistance(new Point(x1, y1), new Point(x2, y2)) < (r1 + r2));
     }
 
     rotate(p, c, angle){
     	// 회전한 좌표를 반환하는 함수
+		var si = Math.sin(angle);
+		var co = Math.cos(angle);
+
+	    p.x -= c.x;
+	    p.y -= c.y;
+
+	    var xnew = p.x * co - p.y * si;
+	    var ynew = p.x * si + p.y * co;
+
+	    p.x = xnew + c.x;
+	    p.y = ynew + c.y;
+	    return p;
     }
 
 

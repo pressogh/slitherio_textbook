@@ -16,15 +16,19 @@ class Game {
 
     init() {
         this.snakes[0] = new Snake(this.ctxSnake, "Tony", 0);
+        this.generateFoods(1000);
     }
 
     draw() {
         // 맵 그리기
         this.drawWorld();
         // 유저 뱀 움직이기
+        this.snakes[0].move();
         // AI 뱀 움직이기
         // 먹이 그리기
+        for(var i = 0; i< this.foods.length; i++) this.foods[i].draw(this.snakes[0]);
         // 점수 그리기
+        // this.drawScore();
         // 미니맵 그리기
     }
 
@@ -90,18 +94,18 @@ class Game {
     }
 
     addSnake(name, id) {
-        // this.snakes.push(new SnakeAi(this.ctxSnake, name, id));
+        this.snakes.push(new SnakeAi(this.ctxSnake, name, id));
     }
 
     generateFoods(n) {
-        // for (var i = 0; i < n; i++) {
-        //     this.foods.push(
-        //         new Food(
-        //             this.ctxFood,
-        //             ut.random(-1200 + 50, 2800 - 50),
-        //             ut.random(-600 + 50, 1400 - 50)
-        //         )
-        //     );
-        // }
+        for (var i = 0; i < n; i++) {
+            this.foods.push(
+                new Food(
+                    this.ctxFood,
+                    ut.random(-1200 + 50, 2800 - 50),
+                    ut.random(-600 + 50, 1400 - 50)
+                )
+            );
+        }
     }
 }

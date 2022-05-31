@@ -19,7 +19,7 @@ canvas {
 
 #canvasFood{
 	background-color: transparent;
-	z-index: 1;
+	z-index: 2;
 }
 
 #canvasHex{
@@ -29,5 +29,5 @@ canvas {
 
 #canvasSnake{	
 	background-color: transparent;
-	z-index: 2;
+	z-index: 3;
 }
